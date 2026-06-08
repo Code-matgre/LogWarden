@@ -1,2 +1,2 @@
 # LogWarden
-LogWarden è un analizzatore di log in tempo reale scritto in Python, progettato per rilevare tentativi di attacchi web (SQLi, XSS, Path Traversal) attraverso un'interfaccia CLI interattiva.
+LogWarden is a real-time log analyzer written in Python, designed to detect attempted web attacks (SQLi, XSS, Path Traversal) through an interactive CLI interface.
