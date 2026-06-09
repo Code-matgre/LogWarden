@@ -1,5 +1,0 @@
-[2024-01-15 10:23:45] ALERT: SQL Injection attempt detected from 192.168.1.105 targeting /api/users - Signature: SQL.1001
-[2024-01-15 10:24:12] ALERT: Port Scan detected from 203.0.113.42 scanning ports 22,80,443,3306 - Threat Level: HIGH
-[2024-01-15 10:25:33] WARNING: XSS attack pattern detected in POST request from 10.0.0.88 - Payload: <script>alert('xss')</script>
-[2024-01-15 10:26:01] ALERT: Brute Force SSH login attempt from 198.51.100.15 - Failed attempts: 15 in 2 minutes
-[2024-01-15 10:27:18] CRITICAL: Malware signature matched - File upload from 172.16.0.50 contains trojan.win32.generic - Quarantined
