@@ -16,19 +16,8 @@ def parse_line(line):
     patternstat = r'"\s+(\d{3})' #status pattern
     matchstat = re.search(patternstat, line)
     
-    if matchip:
-        result['ip'] = matchip.group(1)
-    else:
-        result['ip'] = "none"
-
-    if matchreq:
-        result['request'] = matchreq.group(1)
-    else:
-        result['request'] = "none"
-
-    if matchstat:
-        result['status'] = matchstat.group(1)
-    else:
-        result['status'] = "none"
+    result['ip'] = matchip.group(1) if matchip else "none"
+    result['request'] = matchreq.group(1) if matchreq else "none"
+    result['status'] = matchstat.group(1) if matchstat else "none"
     
     return result
