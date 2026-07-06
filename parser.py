@@ -1,6 +1,6 @@
 import re
 import os
-
+from typing import List, Dict
 from detector import detect_threats
 
 # Regex pre-compilata per ottimizzare le prestazioni su file di grandi dimensioni.
@@ -14,7 +14,7 @@ LOG_PATTERN = re.compile(
 
 
 
-def parse_line(line):
+def parse_line(line: str) -> Dict[str, str]:
     """Analizza una singola riga di log estraendo IP, richiesta e codice di stato.
 
     Usa la regex pre-compilata LOG_PATTERN. Se la riga corrisponde al formato
@@ -35,7 +35,7 @@ def parse_line(line):
     return {'ip': 'none', 'request': 'none', 'status': 'none'}
 
 
-def process_log_file(file_path):
+def process_log_file(file_path: str) -> List[Dict[str, str]]:
     """Gestisce l'apertura sicura del file e avvia il parsing riga per riga.
 
     Verifica preventivamente l'esistenza del file sul file system. Legge il file

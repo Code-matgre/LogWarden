@@ -2,23 +2,12 @@ import re
 from typing import List, Dict, Any
 
 Attack_signatures = {
-    "SQL Injection (SQLi)": re.compile(
-        r"('|\b(UNION|SELECT|INSERT|UPDATE|DELETE|DROP|WHERE|OR)\b)", 
-        re.IGNORECASE
-    ),
-    "Directory Traversal": re.compile(
-        r"(\.\.\/|\.\.\\)", 
-        re.IGNORECASE
-    ),
-    "Cross-Site Scripting (XSS)": re.compile(
-        r"(<script>|javascript:|onerror=|alert\()", 
-        re.IGNORECASE
-    ),
-    "Sensitive File Access": re.compile(
-        r"(\.env|\.git|wp-config|config\.php|/etc/passwd)", 
-        re.IGNORECASE
-    )
+    "SQL Injection (SQLi)": re.compile(r"('|\b(UNION|SELECT|INSERT|UPDATE|DELETE|DROP|WHERE|OR)\b)", re.IGNORECASE),
+    "Directory Traversal": re.compile(r"(\.\.\/|\.\.\\)", re.IGNORECASE),
+    "Cross-Site Scripting (XSS)": re.compile(r"(<script>|javascript:|onerror=|alert\()", re.IGNORECASE),
+    "Sensitive File Access": re.compile(r"(\.env|\.git|wp-config|wp-admin|admin|config\.php|/etc/passwd)", re.IGNORECASE)
 }
+
 
 def analyze_request(request: str) -> str:
     """Analizza la stringa di una richiesta HTTP alla ricerca di firme di attacco.
