@@ -1,6 +1,8 @@
 import re
 import os
 
+from detector import detect_threats
+
 # Regex pre-compilata per ottimizzare le prestazioni su file di grandi dimensioni.
 # Utilizza i Named Groups (?P<nome>...) per mappare direttamente i dati estratti.
 LOG_PATTERN = re.compile(
@@ -67,8 +69,14 @@ def process_log_file(file_path):
     return parsed_d
 
 if __name__ == "__main__":
-    log_file = "Logs/mockaccess.log"
+    log_file = "logs.log"
     results = process_log_file(log_file)
     
-    for entry in results[:5]:
-        print(entry)
+    print(f"[+] Parsing completato. Righe totali: {len(results)}")
+    
+    # Avviamo il modulo di rilevamento minacce
+    detected_alerts = detect_threats(results)
+    
+    print(f"[!] Rilevate {len(detected_alerts)} potenziali minacce:")
+    for alert in detected_alerts:
+        print(f"[-] IP: {alert['ip']} | Attacco: {alert['threat_type']} | Richiesta: {alert['request']}")
