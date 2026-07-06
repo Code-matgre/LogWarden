@@ -1,8 +1,13 @@
 from parser import process_log_file
 from detector import detect_threats
+import argparse
+
+parser = argparse.ArgumentParser(description="LogWarden - Strumento di analisi e rilevamento di minacce nei log")
+parser.add_argument("-f", "--file", help="File di log da analizzare", required=True)
 
 def main():
-    log_file = "logs.log"
+    args = parser.parse_args()
+    log_file = args.file
     print("[*] Avvio di LogWarden v1.0-Beta...")
     print(f"[+] Avvio del parsing del file di log: {log_file}")
     #1. Parsing dei log
